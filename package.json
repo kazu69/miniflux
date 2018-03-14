@@ -1,0 +1,36 @@
+{
+  "name": "@kazu69/miniflux",
+  "version": "0.0.1",
+  "description": "Mini flux architecture",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kazu69/miniflux.git"
+  },
+  "homepage": "https://github.com/kazu69/miniflux",
+  "types": [
+    "node"
+  ],
+  "scripts": {
+    "lint": "tslint -c ./.tslint.json src/*.ts",
+    "prebuild": "npm run clean",
+    "build": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "clean": "rm -rf dist/*",
+    "postinstall": "npm run build",
+    "test": "npm run build && nyc ava test/*.js"
+  },
+  "keywords": [
+    "flux"
+  ],
+  "author": "kazu69",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^9.4.0",
+    "ava": "^0.25.0",
+    "nyc": "^11.6.0",
+    "sinon": "^4.4.4",
+    "tslint": "^5.9.1",
+    "typescript": "^2.6.2"
+  }
+}
