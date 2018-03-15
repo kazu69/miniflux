@@ -18,7 +18,7 @@
     "watch": "tsc -w -p .",
     "clean": "rm -rf dist/*",
     "postinstall": "npm run build",
-    "test": "npm run build && nyc ava test/*.js"
+    "test": "npm run build && nyc ava test/*.js",
   },
   "keywords": [
     "flux"

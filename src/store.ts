@@ -1,4 +1,4 @@
-import {IAction, IHandler, IMiddlewear, IReducer, IStore} from './types/index'
+import {IAction, IHandler, IMiddlewear, IReducer, IStore} from '../types/index.d'
 
 export default class Store<TState> implements IStore {
     private _state: TState

@@ -1,4 +1,4 @@
-import {IDispatcher, IBindDispatcherToStore, IStore} from './types/index'
+import {IDispatcher, IBindDispatcherToStore, IStore} from '../types/index.d'
 
 export function ActionCreator(dispatcher: IDispatcher) {
     const createAction = (type: string) => {

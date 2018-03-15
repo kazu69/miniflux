@@ -1,4 +1,4 @@
-import {IAction, IHandler, IMiddlewear, IStore, IDispatcher, IBindDispatcherToStore} from './types/index'
+import {IAction, IHandler, IMiddlewear, IStore, IDispatcher, IBindDispatcherToStore} from '../types/index.d'
 
 export default class Dispatcher implements IDispatcher {
     private _stores: any[] = [];
