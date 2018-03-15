@@ -32,3 +32,27 @@ export interface IReducer {
     (state: any, action: IAction): any
 }
 
+export declare function ActionCreator(dispatcher: IDispatcher): {
+    createAction: (type: string) => (payload: any) => void;
+    createSubscriber: (store: IStore) => IBindDispatcherToStore;
+}
+
+export declare function CreateStore<TState>(reducer: IReducer, initialState: TState): IStore
+
+export class Dispatcher implements IDispatcher {
+    private _stores;
+    register(store: IStore): IBindDispatcherToStore;
+    unregister(store: IStore): void;
+    dispatch(action: IAction): void;
+    hasStore(): boolean;
+}
+
+export class Store<TState> implements IStore {
+    private _state;
+    private _reducer;
+    constructor(reducer: any, initialState: TState);
+    state: TState;
+    reducer: IReducer;
+    reduce(action: IAction, handler?: IHandler, middlewear?: IMiddlewear): TState;
+}
+
