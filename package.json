@@ -8,9 +8,7 @@
     "url": "git@github.com:kazu69/miniflux.git"
   },
   "homepage": "https://github.com/kazu69/miniflux",
-  "types": [
-    "node"
-  ],
+  "types": "./types/index.d.ts",
   "scripts": {
     "lint": "tslint -c ./.tslint.json src/*.ts",
     "prebuild": "npm run clean",
@@ -18,6 +16,7 @@
     "watch": "tsc -w -p .",
     "clean": "rm -rf dist/*",
     "postinstall": "npm run build",
+    "prepublish": "npm run build"
     "test": "npm run build && nyc ava test/*.js"
   },
   "keywords": [
