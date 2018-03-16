@@ -16,7 +16,7 @@
     "watch": "tsc -w -p .",
     "clean": "rm -rf dist/*",
     "postinstall": "npm run build",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
     "test": "npm run build && nyc ava test/*.js"
   },
   "keywords": [
