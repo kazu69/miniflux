@@ -1,6 +1,6 @@
 {
   "name": "@kazu69/miniflux",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Mini flux architecture",
   "main": "dist/index.js",
   "repository": {
