@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>miniflux example</title>
+    <script src="../dist/bundle.js"></script>
+</head>
+<body>
+    <div id="counter">
+        <span id="count"></span>
+        <button>increase</button>
+        <button>decrease</button>
+    </div>
+<script>
+const Dispatcher = miniflux.Dispatcher
+const ActionCreator = miniflux.ActionCreator
+const CreateStore = miniflux.CreateStore
+
+const View = function(bindDispatchertoStore, actions) {
+    let value = null
+    const [ increaseBtn, decreaseBtn ] = Array.from(document.querySelectorAll('button'))
+    const el = document.querySelector('#count')
+    const logger = (data, action) => {
+        console.log('logger: ', data, action)
+    }
+    const render = () => el.innerHTML = value
+    const updateCount = state => {
+        value = state
+    }
+    bindDispatchertoStore.subscribe([updateCount, render], true, [logger])
+    increaseBtn.addEventListener('click', actions.increase)
+    decreaseBtn.addEventListener('click', actions.decrease)
+}
+
+const initState = 100
+function Reducer(state, action) {
+    switch (action.type) {
+        case 'INCRIMENT':
+            state += 1
+            break
+        case 'DECREASE':
+            state -= 1
+            break
+        default:
+            break
+    }
+    return state
+}
+
+const dispatch = new Dispatcher()
+const store = CreateStore(Reducer, initState)
+const actionCreator = new ActionCreator(dispatch)
+const bindDispatchertoStore = actionCreator.createSubscriber(store)
+const actions = {
+    increase: actionCreator.createAction('INCRIMENT'),
+    decrease: actionCreator.createAction('DECREASE')
+}
+new View(bindDispatchertoStore, actions)
+</script>
+</body>
+</html>
