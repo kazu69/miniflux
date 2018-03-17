@@ -16,7 +16,6 @@
     "clean": "rm -rf dist/*",
     "test": "npm run build && nyc ava test/*.js",
     "bundlebuild": "npx rollup -c rollup.config.js",
-    "prepublish": "npm run build",
     "postinstall": "npm run build",
     "prebuild": "npm run clean && npm run lint",
     "postbuild": "npm run bundlebuild"
