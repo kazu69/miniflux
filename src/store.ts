@@ -28,7 +28,7 @@ export default class Store<TState> implements IStore {
         return this._reducer
     }
 
-    reduce(action: IAction, handler?: IHandler, middlewear?: IMiddlewear): TState {
+    public reduce(action: IAction, handler?: IHandler, middlewear?: IMiddlewear): TState {
         if (!this._reducer) {
             throw Error(`store should has reducer`)
         }
@@ -46,6 +46,6 @@ export default class Store<TState> implements IStore {
         }
 
         this.state = state
-        return state 
+        return state
     }
 }
