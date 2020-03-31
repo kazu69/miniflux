@@ -26,7 +26,7 @@
   "author": "kazu69",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^9.6.41",
+    "@types/node": "^13.9.7",
     "ava": "^1.1.0",
     "nyc": "^15.0.0",
     "rollup": "^0.57.1",
